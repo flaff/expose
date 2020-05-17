@@ -1,11 +1,9 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 import LazyGallery from "../components/LazyGallery"
-import Portrait from "../components/Portrait"
 import About from "../components/About"
 
 const IndexPage = ({ data }) => {
@@ -37,7 +35,7 @@ const IndexPage = ({ data }) => {
               borderRadius: "10px",
             }}
           >
-            See other projects >
+            See other projects ➡
           </div>
         </div>
         <LazyGallery images={data.images} />
