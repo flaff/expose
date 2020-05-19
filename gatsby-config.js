@@ -6,6 +6,7 @@ module.exports = {
   },
   pathPrefix: `/expose`,
   plugins: [
+    `gatsby-plugin-linaria`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-google-fonts`,

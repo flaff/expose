@@ -1,7 +1,12 @@
 import React, { useMemo, useCallback } from "react"
+import { styled } from "linaria/react"
 import Gallery from "react-photo-gallery"
 import Img from "gatsby-image"
 import PhotoWrapper from "./PhotoWrapper"
+
+const GalleryMarginOffset = styled.div`
+  margin: -20px 0;
+`
 
 const getThumbFluid = node => node.thumb?.fluid
 
@@ -57,14 +62,14 @@ const LazyGallery = ({ images }) => {
   )
 
   return (
-    <div style={{ margin: "0 -20px" }}>
+    <GalleryMarginOffset>
       <Gallery
         renderImage={imageRenderer}
         photos={photos}
         direction="column"
         margin={20}
       />
-    </div>
+    </GalleryMarginOffset>
   )
 }
 

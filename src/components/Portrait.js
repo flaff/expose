@@ -1,6 +1,14 @@
 import React from "react"
-import { useStaticQuery } from "gatsby"
+import { styled } from "linaria/react"
+import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
+
+const CircleWrapper = styled.div`
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+`
 
 const Portrait = () => {
   const data = useStaticQuery(graphql`
@@ -18,9 +26,9 @@ const Portrait = () => {
   `)
 
   return (
-    <div style={{ width: '150px', height: '150px', borderRadius: '50%', overflow: 'hidden'}}>
+    <CircleWrapper>
       <Img fluid={data.image.childImageSharp.fluid} />
-    </div>
+    </CircleWrapper>
   )
 }
 

@@ -1,22 +1,24 @@
 import React from "react"
+import { styled } from "linaria/react"
 import Portrait from "./Portrait"
 
+const HeaderWrapper = styled.header`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1.45rem;
+`;
+
+const ArtistNameHeader = styled.h1`
+  margin-top: 1rem;
+`;
+
 const Header = () => (
-  <header
-    style={{ margin: `1.45rem 0` }}
-  >
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        flexDirection: "column"
-      }}
-    >
-      <Portrait />
-      <h1 style={{ margin: "1rem 0 0 0"}}>Some Artist</h1>
-      <caption>Doing ordinary art stuff</caption>
-    </div>
-  </header>
+  <HeaderWrapper>
+    <Portrait />
+    <ArtistNameHeader>Some Artist</ArtistNameHeader>
+    <div>Doing ordinary art stuff</div>
+  </HeaderWrapper>
 )
 
 export default Header

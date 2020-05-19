@@ -11,7 +11,7 @@ const IndexPage = ({ data }) => {
     <>
       <Layout>
         <SEO title="Home" />
-          <div  className="mobile-flex-column" style={{ display: "flex", justifyContent: "center", textAlign: "center" }}>
+          <div className="mobile-flex-column" style={{ display: "flex", justifyContent: "center", textAlign: "center" }}>
           <span style={{ margin: '0 20px'}}>
             some@artist.com
             </span>
