@@ -9432,10 +9432,10 @@ levn@^0.3.0, levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-linaria@2.0.0-alpha.1:
-  version "2.0.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/linaria/-/linaria-2.0.0-alpha.1.tgz#82193f6e65eb98d4e9f9a4d7ca591cb58320fd64"
-  integrity sha512-5y3142JPv/RU1xae7o+tjm47/3vhw9CUj97NFmC7wJ0fc+uDqSoNaoterZLAkEKsi8sd0O4r28facPtAG5OrAw==
+linaria@2.0.0-alpha.5:
+  version "2.0.0-alpha.5"
+  resolved "https://registry.yarnpkg.com/linaria/-/linaria-2.0.0-alpha.5.tgz#cc7e4227bf73c5a2312609fb70e7b1883f4009f7"
+  integrity sha512-W+PcPHcdjJ0VyBjrTnFgqc+R3eTNd3Bf4couvwo+5Yst7JaZh5ot4KYmOzP/AOjPZPlMUGhM4H4NQwyApFY2AQ==
   dependencies:
     "@babel/core" "^7.9.0"
     "@babel/generator" "^7.9.4"
@@ -9443,6 +9443,7 @@ linaria@2.0.0-alpha.1:
     "@babel/plugin-syntax-dynamic-import" "^7.8.3"
     "@babel/plugin-transform-modules-commonjs" "^7.9.0"
     "@babel/plugin-transform-runtime" "^7.9.0"
+    "@babel/plugin-transform-template-literals" "^7.8.3"
     "@babel/register" "^7.9.0"
     "@babel/template" "^7.8.6"
     "@babel/traverse" "^7.9.0"
