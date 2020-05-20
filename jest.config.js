@@ -8,7 +8,7 @@ module.exports = {
   },
   testPathIgnorePatterns: [`node_modules`, `\\.cache`, `<rootDir>.*/public`],
   transformIgnorePatterns: [`node_modules/(?!(gatsby)/)`],
-  watchPathIgnorePatterns: ['node_modules', '.cache', '.linaria-cache'],
+  watchPathIgnorePatterns: ['node_modules', '.cache', '.linaria-cache', 'public'],
   globals: {
     __PATH_PREFIX__: ``,
   },
