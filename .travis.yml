@@ -5,5 +5,5 @@ deploy:
   provider: script
   script: cd expose/ && yarn install && yarn run deploy
   skip_cleanup: true
-  # on:
-  #   branch: master
+  on:
+    branch: master
