@@ -26,8 +26,6 @@ const useGalleryPhotos = ({ images }) => {
     [photoNodes]
   )
 
-  console.log(photoNodes, photos)
-
   const srcToNodeMap = useMemo(() => {
     const map = {}
     photos.forEach(({ src }) => {

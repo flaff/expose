@@ -10,6 +10,7 @@
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-linaria": "^2.0.0",
     "gatsby-plugin-manifest": "^2.4.2",
+    "gatsby-plugin-no-sourcemaps": "^2.2.0",
     "gatsby-plugin-offline": "^3.2.1",
     "gatsby-plugin-react-helmet": "^3.3.1",
     "gatsby-plugin-sharp": "^2.6.2",
@@ -18,6 +19,7 @@
     "linaria": "^2.0.0-alpha.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
+    "react-bootstrap": "^1.0.1",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.0.0",
     "react-image-lightbox": "^5.1.1",
@@ -25,8 +27,18 @@
     "react-use-scroll-position": "2.0.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "5.8.0",
+    "@testing-library/react": "10.0.4",
+    "babel-jest": "26.0.1",
+    "babel-preset-gatsby": "0.4.6",
+    "gatsby-plugin-bundle-stats": "^2.2.0",
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.9",
+    "gatsby-plugin-webpack-bundle-analyzer": "^1.0.5",
     "gh-pages": "^2.2.0",
-    "prettier": "2.0.5"
+    "identity-obj-proxy": "3.0.0",
+    "jest": "26.0.1",
+    "prettier": "2.0.5",
+    "react-test-renderer": "16.13.1"
   },
   "keywords": [
     "gatsby"
@@ -39,8 +51,9 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "test": "jest",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "clear-win": "rimraf .cache & rimraf .linaria-cache & rimraf public"
   },
   "repository": {
     "type": "git",
