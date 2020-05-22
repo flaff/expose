@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 import PhotoWrapper from "./PhotoWrapper"
 
 const GalleryMarginOffset = styled.div`
-  margin: -20px 0;
+  margin: -20px;
 `
 
 const getThumbFluid = node => node.thumb?.fluid

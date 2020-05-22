@@ -3,42 +3,28 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import LazyGallery from "../components/LazyGallery"
-import About from "../components/About"
+import AboutSection from "../components/AboutSection"
+import Spacing from "../components/basic/Spacing"
+import Project from "../components/Project"
+
+const project = {
+  title: "Some project",
+  description:
+    "Aliquam in risus ut nunc cursus ultricies. Donec dolor tellus, viverra non sodales at, vestibulum mattis nunc. Nulla facilisi. Donec sit amet elit semper, tempor quam eu, aliquam orci. Donec lacus mi, rhoncus ac dolor id, fringilla fermentum orci. Aenean in mollis lectus. In et viverra lorem. Sed vel lacinia felis. Donec at ligula dictum, ullamcorper erat eget, ultricies ipsum.",
+}
 
 const IndexPage = ({ data }) => {
   return (
     <>
       <Layout>
         <SEO title="Home" />
-          <div className="mobile-flex-column" style={{ display: "flex", justifyContent: "center", textAlign: "center" }}>
-          <span style={{ margin: '0 20px'}}>
-            some@artist.com
-            </span>
-            <div className="mobile-only" />
-          <span style={{ margin: '0 20px'}}>+48 111 222 333</span>
-          </div>
-        <About />
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginBottom: "1.45rem",
-          }}
-        >
-          <h1 style={{ margin: "0" }}>Some project</h1>
-          <div
-            style={{
-              border: "1px solid rgba(255,255,255,0.1)",
-              padding: "0.25em 0.75em",
-              borderRadius: "10px",
-            }}
-          >
-            See other projects ➡
-          </div>
-        </div>
-        <LazyGallery images={data.images} />
+        <Spacing>
+          <span>some@artist.com</span>
+          <div className="mobile-only" />
+          <span>+48 111 222 333</span>
+        </Spacing>
+        <AboutSection open={true} />
+        <Project {...project} images={data.images} />
       </Layout>
     </>
   )
