@@ -6,6 +6,7 @@
   "author": "Michal Cziomer, flaff <michal.cziomer@gmail.com>",
   "dependencies": {
     "gatsby": "2.22.9",
+    "bootstrap": "4.5.0",
     "gatsby-image": "2.4.5",
     "gatsby-plugin-google-fonts": "1.0.1",
     "gatsby-plugin-linaria": "2.0.0",
@@ -20,6 +21,8 @@
     "prop-types": "15.7.2",
     "react": "16.13.1",
     "react-bootstrap": "1.0.1",
+    "react-bootstrap-icons": "1.0.2-alpha3",
+    "react-collapsible": "2.8.0",
     "react-dom": "16.13.1",
     "react-helmet": "6.0.0",
     "react-image-lightbox": "5.1.1",
@@ -48,7 +51,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build --prefix-paths",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop --host=0.0.0.0",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",

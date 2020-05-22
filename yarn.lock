@@ -3153,6 +3153,11 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
+bootstrap@4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.5.0.tgz#97d9dbcb5a8972f8722c9962483543b907d9b9ec"
+  integrity sha512-Z93QoXvodoVslA+PWNdk23Hze4RBYIkpb5h8I2HY2Tu2h7A0LpAgLcyrhrSUyo2/Oxm2l1fRZPs1e5hnxnliXA==
+
 boxen@^3.0.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/boxen/-/boxen-3.2.0.tgz#fbdff0de93636ab4450886b6ff45b92d098f45eb"
@@ -12117,6 +12122,13 @@ rc@^1.2.7, rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-bootstrap-icons@1.0.2-alpha3:
+  version "1.0.2-alpha3"
+  resolved "https://registry.yarnpkg.com/react-bootstrap-icons/-/react-bootstrap-icons-1.0.2-alpha3.tgz#d83e031eb575936bf268494666f709bf70e45c3a"
+  integrity sha512-1SUMmGP5BVaU4nlZDct9KT1Tkr5AayOGArnK6J13HWZriy/YONFi3C1iVJMFeNXuwEQI+iXnMKURp/ydiMTCrA==
+  dependencies:
+    prop-types "^15.7.2"
+
 react-bootstrap@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/react-bootstrap/-/react-bootstrap-1.0.1.tgz#044b51f34a9db8e17dbfb321a71267a8d6ad11b4"
@@ -12135,6 +12147,11 @@ react-bootstrap@1.0.1:
     react-transition-group "^4.0.0"
     uncontrollable "^7.0.0"
     warning "^4.0.3"
+
+react-collapsible@2.8.0:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/react-collapsible/-/react-collapsible-2.8.0.tgz#dce2ff7703d4456c5bb70cc1b53d3f80acf76526"
+  integrity sha512-QTxGyp4iL8N57FcU1RGt4wD7vqOTRYAHNukxtSeVMkZ+/d1WNWXRIakzhYhC/5TDERihPdp1IvKIJlrLLPyQ/A==
 
 react-dev-utils@^4.2.3:
   version "4.2.3"

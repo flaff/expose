@@ -1,33 +1,32 @@
-import React, { useCallback } from "react"
+import React from "react"
 import { styled } from "linaria/react"
 import { navigate } from "gatsby"
+import { Button } from "react-bootstrap"
+import Section from "./basic/Section"
 
 const lorem =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare augue non orci auctor, ut euismod arcu consectetur. Maecenas arcu risus, malesuada eget finibus vel, accumsan eu nulla. Cras scelerisque luctus sodales. Nam aliquet sem elit. Sed lobortis, eros ac auctor efficitur, risus augue elementum tortor, ac fermentum ex magna placerat ligula."
 
-const AboutSectionWrapper = styled.div`
+const JustifyText = styled.p`
   text-align: justify;
 `
 
-const Button = styled.div`
-  background: rgba(255, 255, 255, 0.1);
-  padding: 0.5em 1em;
-  border-radius: 10px;
-  display: inline-bloc;
+const Centerer = styled.div`
+  text-align: center;
 `
 
-const About = () => {
-  const goToExperience = useCallback(() => navigate('/experience'), []);
+const goToAbout = () => navigate("/about")
 
+const AboutSection = () => {
   return (
-    <AboutSectionWrapper>
+    <Section>
       <h1>About me</h1>
-      {lorem}
-      <div>
-        <Button onClick={goToExperience}>See my exhibitions and experience</Button>
-      </div>
-    </AboutSectionWrapper>
+      <JustifyText>{lorem}</JustifyText>
+      <Centerer>
+        <Button onClick={goToAbout}>See my exhibitions and experience</Button>
+      </Centerer>
+    </Section>
   )
 }
 
-export default About
+export default AboutSection
