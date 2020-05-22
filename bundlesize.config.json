@@ -1,0 +1,6 @@
+{
+    "files": [
+        { "path": "./public/**/*.js", "maxSize": "200 kB" },
+        { "path": "./public/**/*.css", "maxSize": "200 kB" }
+    ]
+}
