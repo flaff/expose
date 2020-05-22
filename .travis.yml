@@ -1,9 +1,16 @@
 language: node_js
 node_js:
   - "12"
+install:
+  script: yarn install --frozen-lockfile
+script:
+  script: yarn build
+after_success:
+  script: yarn bundlewatch
 deploy:
-  provider: script
-  script: yarn install && yarn run deploy
+  script: yarn deploy
+  github_token: $GITHUB_TOKEN
   skip_cleanup: true
+  keep_history: true
   on:
     branch: master

@@ -47,14 +47,14 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby build --prefix-paths",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "jest",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public -r https://$GITHUB_TOKEN@github.com/flaff/expose.git",
+    "deploy": "gh-pages -d public -r https://$GITHUB_TOKEN@github.com/flaff/expose.git",
     "clear-win": "rimraf .cache & rimraf .linaria-cache & rimraf public"
   },
   "repository": {
