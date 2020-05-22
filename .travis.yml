@@ -2,14 +2,11 @@ language: node_js
 node_js:
   - "12"
 install:
-  provider: script
-  script: yarn install --frozen-lockfile
+  - yarn install --frozen-lockfile
 script:
-  provider: script
-  script: yarn build
+  - yarn build
 after_success:
-  provider: script
-  script: yarn bundlewatch
+  - yarn bundlewatch
 deploy:
   provider: script
   script: yarn deploy
