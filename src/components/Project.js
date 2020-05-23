@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react"
-import { InfoCircle, ArrowUp } from "react-bootstrap-icons"
+import InfoCircle from "react-bootstrap-icons/dist/icons/info-circle"
+import ArrowUp from "react-bootstrap-icons/dist/icons/arrow-up"
 import Collapsible from "react-collapsible"
 import { styled } from "linaria/react"
 import { Button } from "react-bootstrap"

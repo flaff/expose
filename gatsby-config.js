@@ -37,5 +37,15 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    { 
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: true,
+        develop: true,
+        ignore: ['.linaria.css'],
+        purgeOnly : ['bootstrap/'],
+        whitelistPatterns: [/^btn/, /^form/, /^custom/],
+      }
+    },
   ],
 }
