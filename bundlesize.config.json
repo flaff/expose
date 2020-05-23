@@ -1,0 +1,16 @@
+{
+  "files": [
+    {
+      "path": "./public/app-*.js"
+    },
+    {
+      "path": "./public/framework-*.js"
+    },
+    {
+      "path": "./public/**/*.js"
+    },
+    {
+      "path": "./public/**/*.css"
+    }
+  ]
+}

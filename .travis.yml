@@ -4,9 +4,10 @@ node_js:
 install:
   - yarn install --frozen-lockfile
 script:
-  - yarn build
+  - yarn clean && yarn build
 after_success:
   - yarn bundlewatch
+  - yarn bundlesize
 deploy:
   provider: script
   script: yarn deploy
