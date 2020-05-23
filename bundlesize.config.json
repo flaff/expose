@@ -1,24 +1,20 @@
 {
-    "files": [
-        {
-            "path": "./public/app-*.js",
-            "maxSize": "100 kB"
-          },
-          {
-            "path": "./public/commons-*.js",
-            "maxSize": "100 kB"
-          }, 
-          {
-            "path": "./public/component--*-*.js",
-            "maxSize": "100 kB"
-          }, 
-          {
-            "path": "./public/**/*.js",
-            "maxSize": "100 kB"
-          },       
-          {
-            "path": "./public/**/*.css",
-            "maxSize": "100 kB"
-          }
-    ]
-  }
+  "files": [
+    {
+      "path": "./public/app-*.js",
+      "maxSize": "100 kB"
+    },
+    {
+      "path": "./public/framework-*.js",
+      "maxSize": "100 kB"
+    },
+    {
+      "path": "./public/**/*.js",
+      "maxSize": "100 kB"
+    },
+    {
+      "path": "./public/**/*.css",
+      "maxSize": "100 kB"
+    }
+  ]
+}
