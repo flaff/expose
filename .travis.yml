@@ -1,6 +1,8 @@
 language: node_js
 node_js:
   - "12"
+addons:
+  chrome: stable
 install:
   - yarn install --frozen-lockfile
 script:
@@ -8,11 +10,10 @@ script:
 after_success:
   - yarn bundlewatch
   - yarn bundlesize
+  - yarn lhci autorun --upload.target=temporary-public-storage
 deploy:
   provider: script
   script: yarn deploy
-  github_token: $GITHUB_TOKEN
-  skip_cleanup: true
-  keep_history: true
+  cleanup: false
   on:
     branch: master
