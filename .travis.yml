@@ -10,8 +10,7 @@ script:
 after_success:
   - yarn bundlewatch
   - yarn bundlesize
-  - yarn lhci autorun
-  - yarn lhci upload
+  - yarn lhci autorun --upload.target=temporary-public-storage
 deploy:
   provider: script
   script: yarn deploy
