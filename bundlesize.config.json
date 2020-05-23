@@ -1,20 +1,16 @@
 {
   "files": [
     {
-      "path": "./public/app-*.js",
-      "maxSize": "100 kB"
+      "path": "./public/app-*.js"
     },
     {
-      "path": "./public/framework-*.js",
-      "maxSize": "100 kB"
+      "path": "./public/framework-*.js"
     },
     {
-      "path": "./public/**/*.js",
-      "maxSize": "100 kB"
+      "path": "./public/**/*.js"
     },
     {
-      "path": "./public/**/*.css",
-      "maxSize": "100 kB"
+      "path": "./public/**/*.css"
     }
   ]
 }
