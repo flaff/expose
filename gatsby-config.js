@@ -10,11 +10,19 @@ module.exports = {
     `gatsby-plugin-linaria`,
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: `gatsby-plugin-webfonts`,
       options: {
-        fonts: [`Inter\:400,700`],
-        display: `swap`
-      }
+        fonts: {
+          google: [
+            {
+              family: `Inter`,
+              subsets: [`latin-ext`],
+              variants: [`400`, `700`],
+              fontDisplay: 'swap'
+            },
+          ],
+        },
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -37,15 +45,15 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    { 
+    {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         printRejected: true,
         develop: true,
-        ignore: ['.linaria.css'],
-        purgeOnly : ['bootstrap/'],
+        ignore: [".linaria.css"],
+        purgeOnly: ["bootstrap/"],
         whitelistPatterns: [/^btn/, /^form/, /^custom/],
-      }
+      },
     },
   ],
 }
