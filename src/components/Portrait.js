@@ -1,7 +1,7 @@
 import React from "react"
 import { styled } from "linaria/react"
-import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
+import useAboutMeStaticQuery from "../hooks/useAboutMeStaticQuery"
 
 const CircleWrapper = styled.div`
   width: 150px;
@@ -11,23 +11,11 @@ const CircleWrapper = styled.div`
 `
 
 const Portrait = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      image: file(
-        relativePath: { eq: "emma-paillex-Vpgeq2S3IE8-unsplash.jpg" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
+  const { sanityAboutMe: aboutMe } = useAboutMeStaticQuery()
 
   return (
     <CircleWrapper>
-      <Img fluid={data.image.childImageSharp.fluid} />
+      <Img fluid={aboutMe.photo.asset.fluid} alt={aboutMe.photo.asset.alt} />
     </CircleWrapper>
   )
 }
