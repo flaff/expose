@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from "react"
+import { graphql } from "gatsby"
 import InfoCircle from "react-bootstrap-icons/dist/icons/info-circle"
 import ArrowUp from "react-bootstrap-icons/dist/icons/arrow-up"
 import Collapsible from "react-collapsible"
@@ -35,7 +36,8 @@ const DetailsButton = styled(Button)`
   }
 `
 
-const Project = ({ title, description, images }) => {
+const Project = ({ project, images }) => {
+  const { title, description, artPieces } = project;
   const [detailsVisible, setDetailsVisible] = useState(false)
   const toggleDetails = useCallback(
     () => setDetailsVisible(visible => !visible),
@@ -70,9 +72,19 @@ const Project = ({ title, description, images }) => {
           <Description>{description}</Description>
         </Collapsible>
 
-        <LazyGallery images={images} />
+        <LazyGallery images={artPieces} />
     </Section>
   )
 }
+
+export const query = graphql`
+  fragment ProjectView on SanityProject {
+    title
+    slug {
+      current
+    }
+    description
+  }
+`
 
 export default Project

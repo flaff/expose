@@ -10,6 +10,10 @@ module.exports = {
     `gatsby-plugin-linaria`,
     `gatsby-plugin-react-helmet`,
     {
+      resolve: 'gatsby-source-sanity',
+      options: require('./sanity-config')
+    },
+    {
       resolve: `gatsby-plugin-webfonts`,
       options: {
         fonts: {
@@ -17,9 +21,15 @@ module.exports = {
             {
               family: `Inter`,
               subsets: [`latin-ext`],
-              variants: [`400`, `700`],
+              variants: [`400`],
               fontDisplay: 'swap'
             },
+            {
+              family: `Manrope`,
+              subsets: [`latin-ext`],
+              variants: [`800`],
+              fontDisplay: 'swap'
+            }
           ],
         },
       },

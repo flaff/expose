@@ -8,13 +8,10 @@ const GalleryMarginOffset = styled.div`
   margin: -20px;
 `
 
-const getThumbFluid = node => node.thumb?.fluid
+const getThumbFluid = node => node.image.asset.fluid;
 
 const useGalleryPhotos = ({ images }) => {
-  const photoNodes = useMemo(
-    () => images.edges.map(edge => edge.node).filter(getThumbFluid),
-    [images]
-  )
+  const photoNodes = images || [];
 
   const photos = useMemo(
     () =>
@@ -59,7 +56,7 @@ const LazyGallery = ({ images }) => {
     [getNode]
   )
 
-  return (
+  return photos.length ? (
     <GalleryMarginOffset>
       <Gallery
         renderImage={imageRenderer}
@@ -68,7 +65,24 @@ const LazyGallery = ({ images }) => {
         margin={20}
       />
     </GalleryMarginOffset>
-  )
+  ) : null
 }
+
+export const query = graphql`
+  fragment ArtPiece on SanityArtPiece {
+    slug {
+      current
+    }
+    title
+    image {
+      alt
+      asset {
+        fluid(maxWidth: 256) {
+          ...GatsbySanityImageFluid
+        }
+      }
+    }
+  }
+`
 
 export default LazyGallery
