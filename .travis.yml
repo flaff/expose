@@ -11,9 +11,5 @@ after_success:
   - yarn bundlewatch
   - yarn bundlesize
   - yarn lhci autorun --upload.target=temporary-public-storage
-deploy:
-  provider: script
-  script: yarn build --prefix-paths && yarn deploy
-  skip_cleanup: true
   on:
     branch: master

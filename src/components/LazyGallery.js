@@ -73,9 +73,13 @@ export const query = graphql`
     slug {
       current
     }
-    title
+    title {
+      t
+    }
     image {
-      alt
+      alt {
+        t
+      }
       asset {
         fluid(maxWidth: 256) {
           ...GatsbySanityImageFluid

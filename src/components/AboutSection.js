@@ -3,10 +3,9 @@ import { styled } from "linaria/react"
 import { navigate } from "gatsby"
 import { Button } from "react-bootstrap"
 import Section from "./basic/Section"
-import useAboutMeStaticQuery from "../hooks/useAboutMeStaticQuery"
+import { useSimpleTranslation } from "../context/TranslationProvider"
 
 const ShortDescription = styled.p`
-  text-align: justify;
   margin-bottom: 1.5rem;
 `
 
@@ -16,15 +15,14 @@ const Centerer = styled.div`
 
 const goToAbout = () => navigate("/about")
 
-const AboutSection = () => {
-  const { sanityAboutMe: aboutMe } = useAboutMeStaticQuery()
-
+const AboutSection = ({ aboutMe }) => {
+  const t = useSimpleTranslation();
   return (
     <Section>
-      <h1>About me</h1>
-      <ShortDescription>{aboutMe.shortDescription}</ShortDescription>
+      <h1>{t('aboutMe')}</h1>
+      <ShortDescription>{t(aboutMe.shortDescription)}</ShortDescription>
       <Centerer>
-        <Button onClick={goToAbout}>See my exhibitions and experience</Button>
+        <Button onClick={goToAbout}>{t('seeMoreAboutMe')}</Button>
       </Centerer>
     </Section>
   )

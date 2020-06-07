@@ -1,10 +1,7 @@
 import React from "react"
 import Project from './Project'
-import useAllProjectsStaticQuery from "../hooks/useAllProjectsStaticQuery"
 
-const AllProjects = () => {
-  const { projects } = useAllProjectsStaticQuery();
-
+const AllProjects = ({ projects }) => {
   return (
     projects.nodes.map(project => <Project project={project} />)
   )
