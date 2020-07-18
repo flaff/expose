@@ -32,7 +32,7 @@
     "react-use-scroll-position": "2.0.0"
   },
   "devDependencies": {
-    "@lhci/cli": "0.4.0",
+    "@lhci/cli": "0.4.2",
     "@testing-library/jest-dom": "5.11.1",
     "@testing-library/react": "10.4.7",
     "babel-jest": "26.1.0",
