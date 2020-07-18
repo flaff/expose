@@ -35,10 +35,10 @@ exports.createPages = async ({ actions: { createPage, createRedirect } }) => {
     createRedirect({
       fromPath: "/",
       toPath: `/${language}`,
-      Language: language,
+      Country: language,
     })
   )
-  createRedirect({ fromPath: "/", toPath: "/en" })
+  // createRedirect({ fromPath: "/", toPath: "/en" })
 }
 
 exports.createResolvers = ({ createResolvers }) => {
