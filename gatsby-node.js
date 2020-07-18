@@ -14,11 +14,13 @@ exports.createPages = async ({ actions: { createPage, createRedirect } }) => {
       createPage({
         ...page,
         path: `/${language}${page.path}`,
-        context: { ...page.context, language, 
-        languages: languages.map(alternativeLanguage => ({
-          language: alternativeLanguage,
-          path: `/${alternativeLanguage}${page.path}`
-        }))
+        context: {
+          ...page.context,
+          language,
+          languages: languages.map(alternativeLanguage => ({
+            language: alternativeLanguage,
+            path: `/${alternativeLanguage}${page.path}`,
+          })),
         },
       })
     })
@@ -29,7 +31,14 @@ exports.createPages = async ({ actions: { createPage, createRedirect } }) => {
     component: path.resolve(`src/templates/Home.js`),
   })
 
-  createRedirect({ fromPath: "/", toPath: "/en", isPermanent: true })
+  languages.forEach(language =>
+    createRedirect({
+      fromPath: "/",
+      toPath: `/${language}`,
+      Language: language,
+    })
+  )
+  createRedirect({ fromPath: "/", toPath: "/en" })
 }
 
 exports.createResolvers = ({ createResolvers }) => {
