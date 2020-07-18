@@ -31,14 +31,20 @@ exports.createPages = async ({ actions: { createPage, createRedirect } }) => {
     component: path.resolve(`src/templates/Home.js`),
   })
 
-  languages.forEach(language =>
+  languages.forEach(language => {
     createRedirect({
       fromPath: "/",
       toPath: `/${language}`,
       Country: language,
     })
-  )
-  // createRedirect({ fromPath: "/", toPath: "/en" })
+    createRedirect({
+      fromPath: "/*",
+      toPath: `/${language}/404`,
+      Country: language,
+      statusCode: 404
+    })
+  })
+  createRedirect({ fromPath: "/", toPath: "/en" })
 }
 
 exports.createResolvers = ({ createResolvers }) => {

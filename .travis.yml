@@ -11,5 +11,3 @@ after_success:
   - yarn bundlewatch
   - yarn bundlesize
   - yarn lhci autorun --upload.target=temporary-public-storage
-  on:
-    branch: master
