@@ -1,10 +1,14 @@
 import React from "react"
 import { styled } from "linaria/react"
+import GlobeIcon from "react-bootstrap-icons/dist/icons/globe"
 import Spacing from "../components/basic/Spacing"
 import Portrait from "./Portrait"
-import useAboutMeStaticQuery from "../hooks/useAboutMeStaticQuery"
+import { usePageContext } from "../context/PageContextProvider"
+import { Dropdown } from "react-bootstrap"
+import { useSimpleTranslation } from "../context/TranslationProvider"
+import "popper.js"
 
-const HeaderWrapper = styled.header`
+const ArtistInfoWrapper = styled.header`
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -21,16 +25,52 @@ const FlexCenterer = styled.div`
   justify-content: center;
 `
 
-const Header = () => {
-  const { sanityAboutMe: aboutMe } = useAboutMeStaticQuery()
+const TopBar = styled.div`
+  display: flex;
+  padding: 16px;
+`
+
+const languageCodeToName = {
+  en: "English",
+  de: "Deutsch",
+  pl: "Polski",
+}
+
+const LanguageSwitch = () => {
+  const { languages, language: currentLanguage } = usePageContext()
 
   return (
+    <Dropdown>
+      <Dropdown.Toggle variant="dark">
+        <GlobeIcon /> {languageCodeToName[currentLanguage]}
+      </Dropdown.Toggle>
+      <Dropdown.Menu>
+        {languages.map(({ language, path }) => (
+          <Dropdown.Item
+            href={path}
+            key={language}
+            active={language === currentLanguage}
+          >
+            {languageCodeToName[language]}
+          </Dropdown.Item>
+        ))}
+      </Dropdown.Menu>
+    </Dropdown>
+  )
+}
+
+const Header = ({ aboutMe }) => {
+  const t = useSimpleTranslation()
+  return (
     <>
-      <HeaderWrapper>
-        <Portrait />
+      <TopBar>
+        <LanguageSwitch />
+      </TopBar>
+      <ArtistInfoWrapper>
+        <Portrait aboutMe={aboutMe} />
         <ArtistNameHeader>{aboutMe.fullName}</ArtistNameHeader>
-        <div>{aboutMe.fewWordsAboutMe}</div>
-      </HeaderWrapper>
+        <div>{t(aboutMe.fewWordsAboutMe)}</div>
+      </ArtistInfoWrapper>
 
       <FlexCenterer>
         <Spacing>

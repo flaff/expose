@@ -13,7 +13,7 @@ import Header from "./header"
 import "bootstrap/dist/css/bootstrap.css"
 import "./layout.css"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, aboutMe }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.title} />
+      <Header siteTitle={data.site.title} aboutMe={aboutMe} />
       <div
         style={{
           margin: `0 auto`,

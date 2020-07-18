@@ -8,6 +8,7 @@ import { Button } from "react-bootstrap"
 import Section from "./basic/Section"
 import Spacing from "./basic/Spacing"
 import LazyGallery from "./LazyGallery"
+import { useSimpleTranslation } from "../context/TranslationProvider"
 
 const ProjectHeader = styled(Spacing)`
   margin-bottom: 2rem;
@@ -37,8 +38,10 @@ const DetailsButton = styled(Button)`
 `
 
 const Project = ({ project, images }) => {
-  const { title, description, artPieces } = project;
+  const { title, description, artPieces } = project
   const [detailsVisible, setDetailsVisible] = useState(false)
+  const t = useSimpleTranslation()
+
   const toggleDetails = useCallback(
     () => setDetailsVisible(visible => !visible),
     []
@@ -46,44 +49,50 @@ const Project = ({ project, images }) => {
 
   return (
     <Section>
-        <ProjectHeader>
-          <h1>{title}</h1>
+      <ProjectHeader>
+        <h1>{t(title)}</h1>
+        {t(description) && (
           <DetailsButton variant="outline-primary" onClick={toggleDetails}>
             <Spacing>
               {detailsVisible ? (
                 <>
                   <ArrowUp size="1.5rem" />
-                  <span>Hide Description</span>
+                  <span>{t("hideDescription")}</span>
                 </>
               ) : (
                 <>
                   <InfoCircle size="1.5rem" />
-                  <ShowDetailsText>Show Description</ShowDetailsText>
+                  <ShowDetailsText>{t("showDescription")}</ShowDetailsText>
                 </>
               )}
             </Spacing>
           </DetailsButton>
-        </ProjectHeader>
-        <Collapsible
-          open={detailsVisible}
-          easing="ease-in-out"
-          transitionTime={200}
-        >
-          <Description>{description}</Description>
-        </Collapsible>
+        )}
+      </ProjectHeader>
+      <Collapsible
+        open={detailsVisible}
+        easing="ease-in-out"
+        transitionTime={200}
+      >
+        <Description>{t(description)}</Description>
+      </Collapsible>
 
-        <LazyGallery images={artPieces} />
+      <LazyGallery images={artPieces} />
     </Section>
   )
 }
 
 export const query = graphql`
   fragment ProjectView on SanityProject {
-    title
+    title {
+      t(language: $language)
+    }
     slug {
       current
     }
-    description
+    description {
+      t(language: $language)
+    }
   }
 `
 
