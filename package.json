@@ -44,7 +44,7 @@
     "gatsby-plugin-netlify": "2.3.5",
     "gatsby-plugin-purgecss": "5.0.0",
     "gatsby-plugin-webfonts": "1.1.2",
-    "gatsby-plugin-webpack-bundle-analyser-v2": "1.1.9",
+    "gatsby-plugin-webpack-bundle-analyser-v2": "1.1.10",
     "gatsby-source-sanity": "6.0.3",
     "gh-pages": "2.2.0",
     "i18next": "19.6.2",
