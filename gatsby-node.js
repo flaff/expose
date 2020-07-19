@@ -35,12 +35,12 @@ exports.createPages = async ({ actions: { createPage, createRedirect } }) => {
     createRedirect({
       fromPath: "/",
       toPath: `/${language}`,
-      Country: language,
+      Language: language,
     })
     createRedirect({
       fromPath: "/*",
       toPath: `/${language}/404`,
-      Country: language,
+      Language: language,
       statusCode: 404
     })
   })
