@@ -10,7 +10,7 @@ export const SimpleTranslationProvider = ({
 }) => {
   const translationMap = useMemo(() => {
     const map = {}
-    translationNodes?.forEach(({ key, translation }) => {
+    translationNodes && translationNodes.forEach(({ key, translation }) => {
       map[key] = translation
     })
     return map
@@ -35,5 +35,5 @@ export const useSimpleTranslation = () => {
     [translationMap]
   )
 
-  return { t }
+  return { t };
 }

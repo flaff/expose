@@ -35,8 +35,8 @@ const SimpleLazyGallery = ({ artPieces }) => {
   const { t } = useSimpleTranslation();
   return (
     <MasonGrid>
-      {artPieces.map(({ image, slug }) => (
-        <MasonImg fluid={image.asset.fluid} key={slug.current} />
+      {artPieces.map(({ image, slug, title }) => (
+        <MasonImg fluid={image.asset.fluid} key={slug.current} alt={t(image.alt) || t(title)} />
       ))}
     </MasonGrid>
   )
