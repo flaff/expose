@@ -16,7 +16,7 @@ const Centerer = styled.div`
 const goToAbout = () => navigate("/about")
 
 const AboutSection = ({ aboutMe }) => {
-  const t = useSimpleTranslation();
+  const { t } = useSimpleTranslation();
   return (
     <Section>
       <h1>{t('aboutMe')}</h1>

@@ -7,8 +7,8 @@ import { styled } from "linaria/react"
 import { Button } from "react-bootstrap"
 import Section from "./basic/Section"
 import Spacing from "./basic/Spacing"
-import LazyGallery from "./LazyGallery"
 import { useSimpleTranslation } from "../context/TranslationProvider"
+import SimpleLazyGallery from "./SimpleLazyGallery"
 
 const ProjectHeader = styled(Spacing)`
   margin-bottom: 2rem;
@@ -40,7 +40,7 @@ const DetailsButton = styled(Button)`
 const Project = ({ project, images }) => {
   const { title, description, artPieces } = project
   const [detailsVisible, setDetailsVisible] = useState(false)
-  const t = useSimpleTranslation()
+  const { t } = useSimpleTranslation()
 
   const toggleDetails = useCallback(
     () => setDetailsVisible(visible => !visible),
@@ -77,7 +77,7 @@ const Project = ({ project, images }) => {
         <Description>{t(description)}</Description>
       </Collapsible>
 
-      <LazyGallery images={artPieces} />
+      <SimpleLazyGallery artPieces={artPieces} />
     </Section>
   )
 }

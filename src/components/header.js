@@ -60,7 +60,7 @@ const LanguageSwitch = () => {
 }
 
 const Header = ({ aboutMe }) => {
-  const t = useSimpleTranslation()
+  const { t } = useSimpleTranslation()
   return (
     <>
       <TopBar>

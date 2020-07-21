@@ -1,35 +1,39 @@
-import React, { createContext, useMemo, useContext, useCallback } from 'react';
+import React, { createContext, useMemo, useContext, useCallback } from "react"
 
 const SimpleTranslationContext = createContext({
-  translationMap: {}
-});
+  translationMap: {},
+})
 
-export const SimpleTranslationProvider = ({ translationNodes, ...otherProps }) => {
+export const SimpleTranslationProvider = ({
+  translationNodes,
+  ...otherProps
+}) => {
   const translationMap = useMemo(() => {
-    const map = {};
-    if (translationNodes) {
-      translationNodes.forEach(({ key, translation }) => {
-          map[key] = translation;
-      });
-    }
-    return map;
-  }, [translationNodes]);
+    const map = {}
+    translationNodes && translationNodes.forEach(({ key, translation }) => {
+      map[key] = translation
+    })
+    return map
+  }, [translationNodes])
 
-  const value = useMemo(() => ({
-    translationMap
-  }), [translationMap]);
+  const value = useMemo(() => ({ translationMap }), [translationMap])
 
-  return <SimpleTranslationContext.Provider {...otherProps} value={value} />;
-};
+  return <SimpleTranslationContext.Provider {...otherProps} value={value} />
+}
 
 export const useSimpleTranslation = () => {
-  const { translationMap } = useContext(SimpleTranslationContext);
+  const { translationMap } = useContext(SimpleTranslationContext)
 
-  return useCallback((keyOrTranslation) => {
-    if (keyOrTranslation?.t) {
-      return keyOrTranslation.t;
-    }
+  const t = useCallback(
+    keyOrTranslation => {
+      return (
+        keyOrTranslation?.t ||
+        translationMap?.[keyOrTranslation]?.t ||
+        keyOrTranslation
+      )
+    },
+    [translationMap]
+  )
 
-    return translationMap?.[keyOrTranslation]?.t || keyOrTranslation;
-  }, [translationMap]);
+  return { t };
 }
