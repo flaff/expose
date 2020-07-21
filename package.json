@@ -36,7 +36,7 @@
     "@testing-library/jest-dom": "5.11.1",
     "@testing-library/react": "10.4.7",
     "babel-jest": "26.1.0",
-    "babel-preset-gatsby": "0.4.7",
+    "babel-preset-gatsby": "0.5.3",
     "bundlesize": "0.18.0",
     "bundlewatch": "0.2.7",
     "dotenv": "^8.2.0",
