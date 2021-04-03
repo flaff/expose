@@ -1,7 +1,9 @@
 {
   "extends": [
-    "schedule:earlyMondays",
     "group:allNonMajor"
   ],
+  "schedule": [
+    "every weekend"
+  ],
   "lockFileMaintenance": true
-}
+} 
