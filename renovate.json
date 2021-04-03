@@ -1,6 +1,7 @@
 {
   "extends": [
-    "group:allNonMajor"
+    "group:allNonMajor",
+    "group:gatsbyMonorepo"
   ],
   "schedule": [
     "every weekend"
