@@ -3,8 +3,5 @@
     "schedule:earlyMondays",
     "group:allNonMajor"
   ],
-   "major": {
-    "dependencyDashboardApproval": true
-  },
   "lockFileMaintenance": true
 }
