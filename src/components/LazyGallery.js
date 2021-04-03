@@ -1,23 +1,25 @@
-import React, { useMemo, useCallback } from "react"
+import { graphql } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image"
+import { getGatsbyImageData } from "gatsby-source-sanity"
 import { styled } from "linaria/react"
+import React, { useCallback, useMemo } from "react"
 import Gallery from "react-photo-gallery"
-import Img from "gatsby-image"
 import PhotoWrapper from "./PhotoWrapper"
 
 const GalleryMarginOffset = styled.div`
   margin: -20px;
 `
 
-const getThumbFluid = node => node.image.asset.fluid;
+const getThumbImageData = node => getGatsbyImageData(node.image.asset)
 
 const useGalleryPhotos = ({ images }) => {
-  const photoNodes = images || [];
+  const photoNodes = images || []
 
   const photos = useMemo(
     () =>
       photoNodes.map(image => ({
-        src: getThumbFluid(image).src,
-        width: getThumbFluid(image).aspectRatio,
+        src: getThumbImageData(image).src,
+        width: getThumbImageData(image).aspectRatio,
         height: 1,
       })),
     [photoNodes]
@@ -26,7 +28,7 @@ const useGalleryPhotos = ({ images }) => {
   const srcToNodeMap = useMemo(() => {
     const map = {}
     photos.forEach(({ src }) => {
-      map[src] = photoNodes.find(node => getThumbFluid(node).src === src)
+      map[src] = photoNodes.find(node => getThumbImageData(node).src === src)
     })
     return map
   }, [photos, photoNodes])
@@ -45,11 +47,11 @@ const LazyGallery = ({ images }) => {
   const imageRenderer = useCallback(
     galleryItem => {
       const node = getNode(galleryItem.photo.src)
-      const fluid = getThumbFluid(node)
+      const gatsbyImageData = getThumbImageData(node)
 
       return (
         <PhotoWrapper {...galleryItem}>
-          <Img fluid={fluid} />
+          <GatsbyImage image={gatsbyImageData} />
         </PhotoWrapper>
       )
     },
@@ -67,26 +69,5 @@ const LazyGallery = ({ images }) => {
     </GalleryMarginOffset>
   ) : null
 }
-
-export const query = graphql`
-  fragment ArtPiece on SanityArtPiece {
-    slug {
-      current
-    }
-    title {
-      t
-    }
-    image {
-      alt {
-        t
-      }
-      asset {
-        fluid(maxWidth: 256) {
-          ...GatsbySanityImageFluid
-        }
-      }
-    }
-  }
-`
 
 export default LazyGallery

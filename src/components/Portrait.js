@@ -1,6 +1,6 @@
 import React from "react"
 import { styled } from "linaria/react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 const CircleWrapper = styled.div`
   width: 150px;
@@ -12,7 +12,7 @@ const CircleWrapper = styled.div`
 const Portrait = ({ aboutMe }) => {
   return (
     <CircleWrapper>
-      <Img fluid={aboutMe.photo.asset.fluid} alt={aboutMe.photo.asset.alt} />
+      <GatsbyImage image={aboutMe.photo.asset.gatsbyImageData} alt={aboutMe.photo.asset.alt} />
     </CircleWrapper>
   )
 }

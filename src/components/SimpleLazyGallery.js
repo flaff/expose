@@ -1,9 +1,9 @@
 import React from "react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { styled } from "linaria/lib/react"
 import { useSimpleTranslation } from "../context/TranslationProvider";
 
-const MasonImgWrapper = styled.div`
+const MasonGatsbyImageWrapper = styled.div`
   display: inline-block;
   position: relative;
   width: 100%;
@@ -20,10 +20,10 @@ const MasonImgWrapper = styled.div`
   }
 `
 
-const MasonImg = (props) => (
-  <MasonImgWrapper>
-    <Img {...props} />
-  </MasonImgWrapper>
+const MasonGatsbyImage = (props) => (
+  <MasonGatsbyImageWrapper>
+    <GatsbyImage {...props} />
+  </MasonGatsbyImageWrapper>
 );
 
 const MasonGrid = styled.div`
@@ -36,7 +36,7 @@ const SimpleLazyGallery = ({ artPieces }) => {
   return (
     <MasonGrid>
       {artPieces.map(({ image, slug, title }) => (
-        <MasonImg fluid={image.asset.fluid} key={slug.current} alt={t(image.alt) || t(title)} />
+        <MasonGatsbyImage image={image.asset.gatsbyImageData} key={slug.current} alt={t(image.alt) || t(title)} />
       ))}
     </MasonGrid>
   )
