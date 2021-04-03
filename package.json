@@ -42,7 +42,7 @@
     "gatsby-cli": "2.19.2",
     "gatsby-plugin-netlify": "2.11.1",
     "gatsby-plugin-purgecss": "5.0.0",
-    "gatsby-plugin-webfonts": "1.1.4",
+    "gatsby-plugin-webfonts": "2.1.0",
     "gatsby-plugin-webpack-bundle-analyser-v2": "1.1.21",
     "gatsby-source-sanity": "6.0.5",
     "i18next": "19.9.2",
