@@ -56,7 +56,7 @@ export const query = graphql`
               t(language: $language)
             }
             asset {
-              ...GatsbySanityImageFluid
+              ...GatsbySanityImageAsset
             }
           }
         }
@@ -70,7 +70,7 @@ export const query = graphql`
           t(language: $language)
         }
         asset {
-          ...GatsbySanityImageFluid
+          ...GatsbySanityImageAsset
         }
       }
       fewWordsAboutMe {
