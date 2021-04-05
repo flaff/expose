@@ -37,7 +37,7 @@ const DetailsButton = styled(Button)`
   }
 `
 
-const Project = ({ project, images }) => {
+const Project = ({ project }) => {
   const { title, description, artPieces } = project
   const [detailsVisible, setDetailsVisible] = useState(false)
   const { t } = useSimpleTranslation()
