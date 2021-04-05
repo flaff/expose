@@ -3531,7 +3531,7 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
-bootstrap@^5.0.0-beta3:
+bootstrap@5.0.0-beta3:
   version "5.0.0-beta3"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.0.0-beta3.tgz#c959f61fbd03667a1b158f763856994859d7a465"
   integrity sha512-0urccjfIOzhrb9qJysN8XW/DRw6rg3zH7qLeKIp4Zyl8+Ens4JWB0NC0cB5AhnSFPd2tftRggjwCMxablo6Tpg==
@@ -6873,7 +6873,7 @@ gatsby-page-utils@^1.2.0:
     lodash "^4.17.21"
     micromatch "^4.0.2"
 
-gatsby-plugin-image@^1.2.0:
+gatsby-plugin-image@1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-1.2.0.tgz#ad571ba270b5c1e8a679ac33eeccd01ac3370db3"
   integrity sha512-tG39QNnmld4rpTLettTL6r8BFm1rRrcionBpgUJXi9l5W4UaUn/hKdM9jV8g5aNUzo4YrEcgZcf1v2dPfrz9Iw==
@@ -9982,7 +9982,7 @@ lighthouse@7.0.0:
     yargs "^16.1.1"
     yargs-parser "^20.2.4"
 
-linaria@^2.1.0:
+linaria@2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/linaria/-/linaria-2.1.0.tgz#2afd27d9dbcab08031c010bcc60eec2a174d50c7"
   integrity sha512-dv6vuATZMYCDmnD5Ccgcqi2RUYfkfq/wE0hGUpyTW3khNAJqpiPWM7NVApCXxdD+mGg3WnD7fdkL+ndL9s8vtQ==
