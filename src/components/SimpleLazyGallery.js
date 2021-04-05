@@ -35,14 +35,14 @@ const SimpleLazyGallery = ({ artPieces }) => {
         return (
           <MasonGridImageWrapper>
             <GatsbyImage
-              image={getSanityGatsbyImageData(image)}
+              image={getSanityGatsbyImageData(image, { width: 400 })}
               key={slug.current}
               alt={t(image.alt) || t(title)}
             />
           </MasonGridImageWrapper>
         )
       }),
-    [artPieces]
+    [artPieces, t]
   )
 
   return <MasonGrid>{imageElements}</MasonGrid>

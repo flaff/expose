@@ -9,19 +9,41 @@ const DEFAULT_OPTIONS = {
   placeholder: "blurred",
 }
 
-const getSanityGatsbyImageData = (image, options) => {
-  const mergedOptions = { ...DEFAULT_OPTIONS, ...options };
-  const imageProps = getGatsbyImageData(
-    image,
-    mergedOptions,
-    SANITY_CONFIG
-  );
+function stringifyParams(params) {
+  return Object.entries(params)
+    .map(([key, value]) => `${key}=${value}`)
+    .join("&")
+}
 
-  if (mergedOptions.placeholder === 'blurred') {
+function addQueryParams(url, params) {
+  const queryParams = stringifyParams(params)
+  return url.includes("?")
+    ? url.replace("?", `?${queryParams}&`)
+    : `${url}?${stringifyParams(params)}`
+}
+
+function modifyImages(imageProps, params) {
+  imageProps.images.fallback.src = addQueryParams(
+    imageProps.images.fallback.src,
+    params
+  )
+  imageProps.images.fallback.srcSet = imageProps.images.fallback.srcSet
+    .split(",")
+    .map(srcSet => addQueryParams(srcSet, params))
+    .join(",")
+}
+
+const getSanityGatsbyImageData = (image, options) => {
+  const mergedOptions = { ...DEFAULT_OPTIONS, ...options }
+  const imageProps = getGatsbyImageData(image, mergedOptions, SANITY_CONFIG)
+
+  if (mergedOptions.placeholder === "blurred") {
     imageProps.placeholder = { fallback: image.asset.metadata.lqip }
   }
-  
-  return imageProps;
+
+  modifyImages(imageProps, { q: 50 })
+
+  return imageProps
 }
 
 export default getSanityGatsbyImageData
