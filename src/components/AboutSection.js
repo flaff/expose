@@ -9,7 +9,7 @@ const ShortDescription = styled.p`
   margin-bottom: 1.5rem;
 `
 
-const Centerer = styled.div`
+const TextCenterer = styled.div`
   text-align: center;
 `
 
@@ -21,9 +21,9 @@ const AboutSection = ({ aboutMe }) => {
     <Section>
       <h1>{t('aboutMe')}</h1>
       <ShortDescription>{t(aboutMe.shortDescription)}</ShortDescription>
-      <Centerer>
+      <TextCenterer>
         <Button onClick={goToAbout}>{t('seeMoreAboutMe')}</Button>
-      </Centerer>
+      </TextCenterer>
     </Section>
   )
 }

@@ -1,8 +1,8 @@
-import React from "react"
+import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { styled } from "linaria/lib/react"
+import React, { useMemo } from "react"
 import { useSimpleTranslation } from "../context/TranslationProvider"
-import { graphql } from "gatsby"
 import getSanityGatsbyImageData from "../utils/getSanityGatsbyImageData"
 
 const MasonGrid = styled.div`
@@ -28,9 +28,10 @@ const MasonGridImageWrapper = styled.div`
 
 const SimpleLazyGallery = ({ artPieces }) => {
   const { t } = useSimpleTranslation()
-  return (
-    <MasonGrid>
-      {artPieces.map(({ image, slug, title }) => {
+
+  const imageElements = useMemo(
+    () =>
+      artPieces.map(({ image, slug, title }) => {
         return (
           <MasonGridImageWrapper>
             <GatsbyImage
@@ -40,9 +41,11 @@ const SimpleLazyGallery = ({ artPieces }) => {
             />
           </MasonGridImageWrapper>
         )
-      })}
-    </MasonGrid>
+      }),
+    [artPieces]
   )
+
+  return <MasonGrid>{imageElements}</MasonGrid>
 }
 
 export const query = graphql`

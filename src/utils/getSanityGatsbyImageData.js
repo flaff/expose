@@ -6,11 +6,22 @@ const SANITY_CONFIG = {
 }
 
 const DEFAULT_OPTIONS = {
-  placeholder: 'blurred'
+  placeholder: "blurred",
 }
 
 const getSanityGatsbyImageData = (image, options) => {
-return getGatsbyImageData(image, { ...DEFAULT_OPTIONS, ...options }, SANITY_CONFIG)
+  const mergedOptions = { ...DEFAULT_OPTIONS, ...options };
+  const imageProps = getGatsbyImageData(
+    image,
+    mergedOptions,
+    SANITY_CONFIG
+  );
+
+  if (mergedOptions.placeholder === 'blurred') {
+    imageProps.placeholder = { fallback: image.asset.metadata.lqip }
+  }
+  
+  return imageProps;
 }
 
 export default getSanityGatsbyImageData

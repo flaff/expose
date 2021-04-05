@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useMemo } from "react"
 import { styled } from "linaria/react"
 import { GatsbyImage } from "gatsby-plugin-image"
+import getSanityGatsbyImageData from "../utils/getSanityGatsbyImageData"
 
 const CircleWrapper = styled.div`
   width: 150px;
@@ -10,9 +11,10 @@ const CircleWrapper = styled.div`
 `
 
 const Portrait = ({ aboutMe }) => {
+  const photoImage = useMemo(() => getSanityGatsbyImageData(aboutMe.photo), [aboutMe]);
   return (
     <CircleWrapper>
-      <GatsbyImage image={aboutMe.photo.asset.gatsbyImageData} alt={aboutMe.photo.asset.alt} />
+      <GatsbyImage image={photoImage} alt={aboutMe.photo.asset.alt} />
     </CircleWrapper>
   )
 }
