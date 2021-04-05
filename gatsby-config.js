@@ -41,6 +41,7 @@ module.exports.plugins = [
       path: `${__dirname}/src/images`,
     },
   },
+  `gatsby-plugin-image`,
   `gatsby-transformer-sharp`,
   `gatsby-plugin-sharp`,
   {
@@ -55,15 +56,15 @@ module.exports.plugins = [
       icon: `src/images/gatsby-icon.png`,
     },
   },
-  {
-    resolve: `gatsby-plugin-purgecss`,
-    options: {
-      printRejected: true,
-      develop: true,
-      ignore: [".linaria.css"],
-      purgeOnly: ["bootstrap/"],
-      whitelistPatterns: [/^btn/, /^form/, /^dropdown/, /^custom/, /^svg/, /show/],
-    },
-  },
+  // {
+  //   resolve: `gatsby-plugin-purgecss`,
+  //   options: {
+  //     printRejected: true,
+  //     develop: true,
+  //     ignore: [".linaria.css"],
+  //     purgeOnly: ["bootstrap/"],
+  //     whitelistPatterns: [/^btn/, /^form/, /^dropdown/, /^custom/, /^svg/, /show/],
+  //   },
+  // },
   `gatsby-plugin-netlify`
 ]

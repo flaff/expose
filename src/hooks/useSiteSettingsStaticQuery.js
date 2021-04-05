@@ -3,17 +3,20 @@ import { useStaticQuery, graphql } from "gatsby"
 const useSiteSettingsStaticQuery = () => {
   return useStaticQuery(
     graphql`
-      query {
+      query($language: String) {
         site {
           siteMetadata {
             author
           }
         }
         sanitySite: sanitySiteSettings(
-          _id: { regex: "/(drafts.|)siteSettings/" }
+          _id:
+           { regex: "/(drafts.|)siteSettings/" }
         ) {
           title
-          description
+          description {
+            t(language: $language)
+          }
           keywords
         }
       }

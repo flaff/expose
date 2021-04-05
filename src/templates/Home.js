@@ -1,11 +1,11 @@
+import { graphql } from "gatsby"
 import React from "react"
-
-import Layout from "../components/layout"
-import SEO from "../components/seo"
 import AboutSection from "../components/AboutSection"
 import AllProjects from "../components/AllProjects"
-import { SimpleTranslationProvider } from "../context/TranslationProvider"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 import { PageContextProvider } from "../context/PageContextProvider"
+import { SimpleTranslationProvider } from "../context/TranslationProvider"
 
 const IndexPage = ({ data, pageContext }) => {
   const { projects, aboutMe, translations } = data
@@ -56,9 +56,7 @@ export const query = graphql`
               t(language: $language)
             }
             asset {
-              fluid(maxWidth: 256) {
-                ...GatsbySanityImageFluid
-              }
+              ...GatsbySanityImageAsset
             }
           }
         }
@@ -72,9 +70,7 @@ export const query = graphql`
           t(language: $language)
         }
         asset {
-          fluid(maxWidth: 256) {
-            ...GatsbySanityImageFluid
-          }
+          ...GatsbySanityImageAsset
         }
       }
       fewWordsAboutMe {
