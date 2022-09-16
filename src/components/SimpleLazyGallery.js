@@ -13,12 +13,14 @@ const MasonGrid = styled.div`
 `
 
 const MasonGridImageWrapper = styled.div`
-  display: inline-block;
+  display: inline-flex;
   position: relative;
   width: 100%;
   margin-bottom: 32px;
 
-  &, div[data-gatsby-image-wrapper], img {
+  &,
+  div[data-gatsby-image-wrapper],
+  img {
     border-radius: 10px;
     overflow: hidden;
   }
@@ -42,21 +44,13 @@ const SimpleLazyGallery = ({ artPieces }) => {
         }
 
         if (matureContent && !adultContentVisible) {
-          const blurredGatsbyImageData = {
-            ...gatsbyImageData,
-            images: {
-              ...gatsbyImageData.images,
-              fallback: gatsbyImageData.placeholder.fallback,
-              sources: [],
-            },
-          }
-
+          console.log(gatsbyImageData)
           return (
-            <MasonGridImageWrapper>
+            <MasonGridImageWrapper key={slug.current}>
               <AdultContentImageOverlay />
-              <GatsbyImage
-                image={blurredGatsbyImageData}
-                key={slug.current}
+              <img
+                src={gatsbyImageData.placeholder.fallback}
+                width={gatsbyImageData.width}
                 alt={t(image.alt) || t(title)}
               />
             </MasonGridImageWrapper>
@@ -64,10 +58,9 @@ const SimpleLazyGallery = ({ artPieces }) => {
         }
 
         return (
-          <MasonGridImageWrapper>
+          <MasonGridImageWrapper key={slug.current}>
             <GatsbyImage
               image={gatsbyImageData}
-              key={slug.current}
               alt={t(image.alt) || t(title)}
             />
           </MasonGridImageWrapper>
