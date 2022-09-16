@@ -1,5 +1,5 @@
 /**
- * SEO component that queries for data with
+ * Seo component that queries for data with
  *  Gatsby's useStaticQuery React hook
  *
  * See: https://www.gatsbyjs.org/docs/use-static-query/
@@ -9,7 +9,7 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import useSiteSettingsStaticQuery from "../hooks/useSiteSettingsStaticQuery"
 
-function SEO({ description, lang, meta, title }) {
+function Seo({ description, lang, meta, title }) {
   const { site, sanitySite } = useSiteSettingsStaticQuery()
 
   const metaDescription = description || sanitySite.description
@@ -59,10 +59,10 @@ function SEO({ description, lang, meta, title }) {
   )
 }
 
-SEO.defaultProps = {
+Seo.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
 }
 
-export default SEO
+export default Seo
