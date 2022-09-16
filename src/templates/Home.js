@@ -3,7 +3,8 @@ import React from "react"
 import AboutSection from "../components/AboutSection"
 import AllProjects from "../components/AllProjects"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
+import { AdultContentProvider } from "../context/AdultContentContext"
 import { PageContextProvider } from "../context/PageContextProvider"
 import { SimpleTranslationProvider } from "../context/TranslationProvider"
 
@@ -13,11 +14,13 @@ const IndexPage = ({ data, pageContext }) => {
   return (
     <PageContextProvider pageContext={pageContext}>
       <SimpleTranslationProvider translationNodes={translations.nodes}>
-        <SEO title="Home" />
-        <Layout aboutMe={aboutMe}>
-          <AboutSection aboutMe={aboutMe} />
-          <AllProjects projects={projects} />
-        </Layout>
+        <AdultContentProvider>
+          <Seo title="Home" />
+          <Layout aboutMe={aboutMe}>
+            <AboutSection aboutMe={aboutMe} />
+            <AllProjects projects={projects} />
+          </Layout>
+        </AdultContentProvider>
       </SimpleTranslationProvider>
     </PageContextProvider>
   )
@@ -59,6 +62,7 @@ export const query = graphql`
               ...GatsbySanityImageAsset
             }
           }
+          matureContent
         }
       }
     }
