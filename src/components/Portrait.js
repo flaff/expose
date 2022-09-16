@@ -6,8 +6,11 @@ import getSanityGatsbyImageData from "../utils/getSanityGatsbyImageData"
 const CircleWrapper = styled.div`
   width: 150px;
   height: 150px;
-  border-radius: 50%;
-  overflow: hidden;
+
+  &, div[data-gatsby-image-wrapper], img {
+    border-radius: 50%;
+    overflow: hidden;
+  }
 `
 
 const Portrait = ({ aboutMe }) => {

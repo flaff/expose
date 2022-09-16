@@ -17,16 +17,14 @@ const MasonGridImageWrapper = styled.div`
   position: relative;
   width: 100%;
   margin-bottom: 32px;
-  border-radius: 10px;
-  overflow: hidden;
+
+  &, div[data-gatsby-image-wrapper], img {
+    border-radius: 10px;
+    overflow: hidden;
+  }
 
   & > * {
     position: static;
-  }
-
-  img {
-    border-radius: 10px;
-    overflow: hidden;
   }
 `
 
