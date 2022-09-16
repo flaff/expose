@@ -1,11 +1,13 @@
-import React, { createContext, useContext, useMemo, useState } from "react"
+import React, { createContext, useContext, useEffect, useMemo, useState } from "react"
 
 const AdultContentContext = createContext()
 
 export const AdultContentProvider = props => {
-  const [adultContentVisible, setAdultContentVisible] = useState(
-    useMemo(() => !!localStorage.getItem("adultContentVisible"), [])
-  )
+  const [adultContentVisible, setAdultContentVisible] = useState(false)
+
+  useEffect(() => {
+    setAdultContentVisible(!!localStorage.getItem("adultContentVisible"));
+  }, []);
 
   const showAdultContent = () => {
     setAdultContentVisible(true)
