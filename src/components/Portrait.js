@@ -8,6 +8,7 @@ const CircleWrapper = styled.div`
     border-radius: 120px;
     overflow: hidden;
     height: 60vh;
+    width: 240px;
   }
 `
 
