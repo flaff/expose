@@ -4,12 +4,10 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import getSanityGatsbyImageData from "../utils/getSanityGatsbyImageData"
 
 const CircleWrapper = styled.div`
-  width: 150px;
-  height: 150px;
-
   &, div[data-gatsby-image-wrapper], img {
-    border-radius: 50%;
+    border-radius: 120px;
     overflow: hidden;
+    height: 60vh;
   }
 `
 
