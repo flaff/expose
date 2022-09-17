@@ -21,9 +21,9 @@ const AboutSection = ({ aboutMe }) => {
     <Section>
       <h1>{t('aboutMe')}</h1>
       <ShortDescription>{t(aboutMe.shortDescription)}</ShortDescription>
-      <TextCenterer>
+      {/* <TextCenterer>
         <Button onClick={goToAbout}>{t('seeMoreAboutMe')}</Button>
-      </TextCenterer>
+      </TextCenterer> */}
     </Section>
   )
 }
