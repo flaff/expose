@@ -10,7 +10,7 @@ import { useSimpleTranslation } from "../context/TranslationProvider"
 import "popper.js"
 
 const ArtistNameHeader = styled.h1`
-  font-size: 7vh;
+  font-size: 68px;
   letter-spacing: 0;
   margin-bottom: 8px;
 `
