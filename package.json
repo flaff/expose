@@ -34,7 +34,7 @@
     "@lhci/cli": "0.7.0",
     "@testing-library/jest-dom": "5.11.10",
     "@testing-library/react": "11.2.6",
-    "babel-jest": "26.6.3",
+    "babel-jest": "29.7.0",
     "babel-preset-gatsby": "1.2.0",
     "bundlesize": "0.18.1",
     "bundlewatch": "0.3.2",
